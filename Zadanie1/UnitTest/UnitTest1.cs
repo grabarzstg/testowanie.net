@@ -83,7 +83,7 @@ namespace UnitTest
             Assert.AreNotEqual(0, input.id);
             Ticket output = new Ticket("Gdynia-Orlowo", "Gdynia-Redlowo", 5, 5, 0);
             input.Update(output);
-           // input.Get(input.id);
+            input.Get(input.id);
             Console.WriteLine(input.id);
             Assert.AreEqual(output.from, input.from);
             Assert.AreEqual(output.destination, input.destination);

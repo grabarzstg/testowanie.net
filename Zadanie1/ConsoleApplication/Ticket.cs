@@ -139,9 +139,17 @@ namespace ConsoleApplication
             con.Open();
 
             reader = new SqlCommand("UPDATE Ticket SET [From] = '"+ data.from +"',Destination ='"+ data.destination +"',FromZone = '" + data.fromZone +"',DestinationZone = '" + data.destinationZone +"',Price = '" + data.price +"' WHERE ID=" + id, con).ExecuteReader();
-            reader.Close();  con.Close(); 
-            this.Update(data); 
-            
+            reader.Close();  con.Close();
+            Ticket.Set(this, data);
+        }
+
+        public static void Set(Ticket ticket, Ticket data)
+        {
+            ticket.from = data.from;
+            ticket.destination = data.destination;
+            ticket.fromZone = data.fromZone;
+            ticket.destinationZone = data.destinationZone;
+            ticket.price = data.price;
         }
         
         
